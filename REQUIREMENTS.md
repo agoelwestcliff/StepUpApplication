@@ -1,7 +1,7 @@
 # StepUp — Requirements
 
 **Repo:** https://github.com/agoelwestcliff/StepUpApplication
-**Course:** DEV610 — Social Networking Team Project
+**Course:** DEV640 — Social Networking Team Project
 **Team (Group 3):** Arpitha Nagaraj Hegde, Akash Goel, Ashni Walia, I Ganbold
 
 ## 1. Overview
