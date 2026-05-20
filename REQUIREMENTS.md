@@ -43,7 +43,7 @@ Beyond the core social networking elements:
   - `profiles` (user, text, thumbnail)
   - `posts` — id, author, content, timestamp
 
-## 5. Out of Scope (Week 1)
+## 5. Out of Scope
 
 - Email verification, OAuth.
 - Native mobile apps.
