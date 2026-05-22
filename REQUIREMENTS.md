@@ -10,17 +10,17 @@ StepUp is an internal social networking platform for employees within a company.
 
 ## 2. Core Features
 
-| # | Feature                      | Description                                      |
-|---|------------------------------|--------------------------------------------------|
-| 1 | Signup process               | Employee registration with company email         |
-| 2 | Login                        | Authenticated login form                         |
-| 3 | Logout                       | Session teardown                                 |
-| 4 | Session control              | Persistent sessions across pages                 |
-| 5 | Profiles with thumbnails     | Employee profile with photo, bio, department     |
-| 6 | Employee directory           | Browse and search all members                    |
-| 7 | Connections                  | Add colleagues as connections (mutual acceptance)|
-| 8 | Messaging                    | Public wall posts and private direct messages    |
-| 9 | Styling                      | Responsive design with custom CSS                |
+| # | Feature                      | Description                                      | Owner     |
+|---|------------------------------|--------------------------------------------------|-----------|
+| 1 | Signup process               | Employee registration with company email         | Arpitha   |
+| 2 | Login                        | Authenticated login form                         | Arpitha   |  
+| 3 | Logout                       | Session teardown                                 | Arpitha   |
+| 4 | Session control              | Persistent sessions across pages                 | Arpitha   |
+| 5 | Profiles with thumbnails     | Employee profile with photo, bio, department     |           |
+| 6 | Employee directory           | Browse and search all members                    |           |
+| 7 | Connections                  | Add colleagues as connections (mutual acceptance)|           |
+| 8 | Messaging                    | Public wall posts and private direct messages    |           |
+| 9 | Styling                      | Responsive design with custom CSS                |           |
 
 ## 3. Extended Features
 
