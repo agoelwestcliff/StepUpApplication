@@ -12,13 +12,15 @@ body {
   padding: 20px;
 }
 
-.signup-box {
-  width: 380px;
+.auth-box {
+  width: 100%;
+  max-width: 380px;
   padding: 28px;
   background-color: white;
   border: 1px solid #cdeeff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(57, 160, 237, 0.15);
+  text-align: center;
 }
 
 .logo {
@@ -53,6 +55,12 @@ p {
   line-height: 1.5;
 }
 
+h2 {
+  margin: 24px 0 8px;
+  color: #333;
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -73,14 +81,34 @@ input {
 button {
   margin-top: 20px;
   padding: 10px;
+  width: min(100%, 240px);
   background-color: #6ec6ff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  align-self: center;
 }
 
 button:hover {
   background-color: #3aa9f5;
+}
+
+.link-button {
+  width: min(100%, 280px);
+  margin-top: 12px;
+  background-color: white;
+  color: #3aa9f5;
+  border: 1px solid #cdeeff;
+}
+
+.link-button:hover {
+  background-color: #f2fbff;
+}
+
+.message {
+  margin: 14px 0 0;
+  color: #b00020;
+  font-size: 14px;
 }
