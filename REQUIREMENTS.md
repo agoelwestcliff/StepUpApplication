@@ -34,14 +34,11 @@ Beyond the core social networking elements:
 
 ## 4. Tech Stack
 
-- **Frontend:** React, Vite, CSS.
-- **Backend:** Node.js, Express, MySQL.
-- **Database tables:**
-  - `members` (user, pass, email, department, role)
-  - `messages` (id, auth, recip, pm, time, message)
-  - `friends` (user, friend, status)
-  - `profiles` (user, text, thumbnail)
-  - `posts` — id, author, content, timestamp
+- **Frontend:** HTML, CSS/CSS3, and vanilla JavaScript.
+- **Libraries/frameworks:** None. The project does not use React, jQuery, PHP,
+  MySQL, or a JavaScript build tool.
+- **Data storage for prototype:** Browser `localStorage` for sample employee
+  accounts and session state.
 
 ## 5. Out of Scope
 

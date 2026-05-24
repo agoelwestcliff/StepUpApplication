@@ -3,10 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StepUp Sign Up</title>
+    <title>StepUp Employee Network</title>
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <main class="page">
+      <section class="auth-box" id="auth-panel" aria-labelledby="stepup-title">
+        <div class="logo" aria-label="StepUp">
+          <span>S</span>
+          <h1 id="stepup-title">StepUp</h1>
+        </div>
+
+        <p id="form-description">Create an employee account with your email.</p>
+
+        <form id="auth-form" novalidate>
+          <div class="signup-field">
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" placeholder="Enter your first name" />
+          </div>
+
+          <div class="signup-field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Enter your last name" />
+          </div>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Create a password" />
+
+          <p class="message" id="message" role="status" aria-live="polite"></p>
+
+          <button type="submit" id="submit-button">Sign Up</button>
+        </form>
+
+        <button class="link-button" type="button" id="switch-mode">
+          Already have an account? Login
+        </button>
+      </section>
+
+      <section class="auth-box hidden" id="dashboard" aria-labelledby="welcome-title">
+        <div class="logo" aria-label="StepUp">
+          <span>S</span>
+          <h1>StepUp</h1>
+        </div>
+
+        <h2 id="welcome-title">Welcome</h2>
+        <p id="welcome-message"></p>
+
+        <button type="button" id="logout-button">Logout</button>
+      </section>
+    </main>
+
+    <script src="src/app.js" defer></script>
   </body>
 </html>

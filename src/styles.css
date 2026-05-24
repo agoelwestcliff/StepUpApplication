@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #eaf7ff;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eaf7ff;
+  color: #333;
 }
 
 .page {
@@ -16,11 +21,15 @@ body {
   width: 100%;
   max-width: 380px;
   padding: 28px;
-  background-color: white;
+  background: #fff;
   border: 1px solid #cdeeff;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(57, 160, 237, 0.15);
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .logo {
@@ -36,79 +45,107 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6ec6ff;
-  color: white;
+  background: #6ec6ff;
+  color: #fff;
   border-radius: 50%;
-  font-weight: bold;
   font-size: 22px;
+  font-weight: bold;
 }
 
 .logo h1 {
   margin: 0;
   color: #3aa9f5;
-  text-align: center;
-}
-
-p {
-  text-align: center;
-  color: #555;
-  line-height: 1.5;
+  font-size: 32px;
 }
 
 h2 {
   margin: 24px 0 8px;
   color: #333;
-  text-align: center;
+  font-size: 24px;
+}
+
+p {
+  color: #555;
+  line-height: 1.5;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 label {
+  display: block;
   margin-top: 12px;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 input {
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid #98d9ff;
+  border-color: #3aa9f5;
 }
 
 button {
+  width: min(100%, 240px);
   margin-top: 20px;
   padding: 10px;
-  width: min(100%, 240px);
-  background-color: #6ec6ff;
-  color: white;
-  border: none;
+  align-self: center;
+  background: #6ec6ff;
+  color: #fff;
+  border: 0;
   border-radius: 4px;
   cursor: pointer;
+  font: inherit;
   font-weight: bold;
-  align-self: center;
 }
 
-button:hover {
-  background-color: #3aa9f5;
+button:hover,
+button:focus {
+  background: #3aa9f5;
 }
 
 .link-button {
   width: min(100%, 280px);
   margin-top: 12px;
-  background-color: white;
+  background: #fff;
   color: #3aa9f5;
   border: 1px solid #cdeeff;
 }
 
-.link-button:hover {
-  background-color: #f2fbff;
+.link-button:hover,
+.link-button:focus {
+  background: #f2fbff;
+  color: #247fbd;
 }
 
 .message {
+  min-height: 21px;
   margin: 14px 0 0;
   color: #b00020;
   font-size: 14px;
+  text-align: center;
+}
+
+.message.success {
+  color: #176a3a;
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding: 12px;
+  }
+
+  .auth-box {
+    padding: 22px;
+  }
 }
