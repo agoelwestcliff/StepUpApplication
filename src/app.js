@@ -5,6 +5,10 @@
 
   var authPage = document.getElementById('auth-page');
   var dashboard = document.getElementById('dashboard');
+  var profileView = document.getElementById('profile-view');
+  var passwordView = document.getElementById('password-view');
+  var showPasswordPageButton = document.getElementById('show-password-page');
+  var backToProfileButton = document.getElementById('back-to-profile');
   var profileAvatar = document.getElementById('profile-avatar');
   var form = document.getElementById('auth-form');
   var formDescription = document.getElementById('form-description');
@@ -67,6 +71,19 @@
     }
   }
 
+  function showProfileView() {
+    profileView.className = 'app-main';
+    passwordView.className = 'app-main hidden';
+  }
+
+  function showPasswordView() {
+    profileView.className = 'app-main hidden';
+    passwordView.className = 'app-main';
+    passwordForm.reset();
+    setPasswordMessage('');
+    currentPassword.focus();
+  }
+
   function renderDashboard() {
     if (!currentEmployee) {
       authPage.className = 'page';
@@ -83,6 +100,7 @@
       currentEmployee.firstName.charAt(0) + currentEmployee.lastName.charAt(0);
     passwordForm.reset();
     setPasswordMessage('');
+    showProfileView();
   }
 
   function updatePassword() {
@@ -183,6 +201,14 @@
     clearForm();
     setMessage('');
     renderAuth();
+  });
+
+  showPasswordPageButton.addEventListener('click', function () {
+    showPasswordView();
+  });
+
+  backToProfileButton.addEventListener('click', function () {
+    showProfileView();
   });
 
   passwordForm.addEventListener('submit', function (event) {

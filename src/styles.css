@@ -264,6 +264,32 @@ button:focus {
   word-break: break-word;
 }
 
+.profile-action {
+  width: auto;
+  margin: 12px 0 0;
+  padding: 8px 18px;
+}
+
+.back-link {
+  display: inline-block;
+  width: auto;
+  margin: 0 0 16px;
+  padding: 6px 0;
+  background: transparent;
+  color: #3aa9f5;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+}
+
+.back-link:hover,
+.back-link:focus {
+  background: transparent;
+  color: #247fbd;
+  text-decoration: underline;
+}
+
 @media (max-width: 540px) {
   .app-header {
     padding: 12px 16px;

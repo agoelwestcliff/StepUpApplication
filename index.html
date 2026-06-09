@@ -53,7 +53,7 @@
         <button class="link-button header-action" type="button" id="logout-button">Logout</button>
       </header>
 
-      <main class="app-main">
+      <main class="app-main" id="profile-view">
         <h2 id="profile-title">Your Profile</h2>
 
         <section class="card profile-card">
@@ -61,12 +61,21 @@
           <div class="profile-identity">
             <p class="profile-name" id="profile-name"></p>
             <p class="profile-email" id="profile-email"></p>
+            <button type="button" class="link-button profile-action" id="show-password-page">
+              Update Password
+            </button>
           </div>
         </section>
+      </main>
+
+      <main class="app-main hidden" id="password-view">
+        <button type="button" class="back-link" id="back-to-profile" aria-label="Back to profile">
+          &larr; Back to profile
+        </button>
+
+        <h2>Update Password</h2>
 
         <section class="card">
-          <h3 class="card-title">Update Password</h3>
-
           <form id="password-form" class="card-form" novalidate>
             <div class="form-row">
               <label for="currentPassword">Current Password</label>
