@@ -15,8 +15,13 @@
   var submitButton = document.getElementById('submit-button');
   var switchModeButton = document.getElementById('switch-mode');
   var logoutButton = document.getElementById('logout-button');
-  var welcomeTitle = document.getElementById('welcome-title');
-  var welcomeMessage = document.getElementById('welcome-message');
+  var profileName = document.getElementById('profile-name');
+  var profileEmail = document.getElementById('profile-email');
+  var passwordForm = document.getElementById('password-form');
+  var currentPassword = document.getElementById('currentPassword');
+  var newPassword = document.getElementById('newPassword');
+  var confirmPassword = document.getElementById('confirmPassword');
+  var passwordMessage = document.getElementById('password-message');
   var signupFields = document.querySelectorAll('.signup-field');
 
   function findEmployeeByEmail(value) {
@@ -32,6 +37,11 @@
   function setMessage(text, type) {
     message.textContent = text;
     message.className = type === 'success' ? 'message success' : 'message';
+  }
+
+  function setPasswordMessage(text, type) {
+    passwordMessage.textContent = text;
+    passwordMessage.className = type === 'success' ? 'message success' : 'message';
   }
 
   function clearForm() {
@@ -66,8 +76,45 @@
 
     authPanel.className = 'auth-box hidden';
     dashboard.className = 'auth-box';
-    welcomeTitle.textContent = 'Welcome, ' + currentEmployee.firstName;
-    welcomeMessage.textContent = 'You are signed in with ' + currentEmployee.email + '.';
+    profileName.textContent = currentEmployee.firstName + ' ' + currentEmployee.lastName;
+    profileEmail.textContent = currentEmployee.email;
+    passwordForm.reset();
+    setPasswordMessage('');
+  }
+
+  function updatePassword() {
+    if (!currentEmployee) {
+      return;
+    }
+
+    if (!currentPassword.value || !newPassword.value || !confirmPassword.value) {
+      setPasswordMessage('Please fill out all password fields.');
+      return;
+    }
+
+    if (currentPassword.value !== currentEmployee.password) {
+      setPasswordMessage('Current password is incorrect.');
+      return;
+    }
+
+    if (newPassword.value.length < 3) {
+      setPasswordMessage('New password is too short.');
+      return;
+    }
+
+    if (newPassword.value !== confirmPassword.value) {
+      setPasswordMessage('New passwords do not match.');
+      return;
+    }
+
+    if (newPassword.value === currentPassword.value) {
+      setPasswordMessage('New password must be different from the current password.');
+      return;
+    }
+
+    currentEmployee.password = newPassword.value;
+    passwordForm.reset();
+    setPasswordMessage('Password updated successfully.', 'success');
   }
 
   function signup() {
@@ -133,6 +180,15 @@
     clearForm();
     setMessage('');
     renderAuth();
+  });
+
+  passwordForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    updatePassword();
+  });
+
+  passwordForm.addEventListener('input', function () {
+    setPasswordMessage('');
   });
 
   logoutButton.addEventListener('click', function () {

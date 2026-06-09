@@ -43,16 +43,39 @@
         </button>
       </section>
 
-      <section class="auth-box hidden" id="dashboard" aria-labelledby="welcome-title">
+      <section class="auth-box hidden" id="dashboard" aria-labelledby="profile-title">
         <div class="logo" aria-label="StepUp">
           <span>S</span>
           <h1>StepUp</h1>
         </div>
 
-        <h2 id="welcome-title">Welcome</h2>
-        <p id="welcome-message"></p>
+        <h2 id="profile-title">Your Profile</h2>
 
-        <button type="button" id="logout-button">Logout</button>
+        <dl class="profile-details">
+          <dt>Name</dt>
+          <dd id="profile-name"></dd>
+          <dt>Email</dt>
+          <dd id="profile-email"></dd>
+        </dl>
+
+        <h3 class="profile-subtitle">Update Password</h3>
+
+        <form id="password-form" novalidate>
+          <label for="currentPassword">Current Password</label>
+          <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter your current password" />
+
+          <label for="newPassword">New Password</label>
+          <input id="newPassword" name="newPassword" type="password" placeholder="Enter a new password" />
+
+          <label for="confirmPassword">Confirm New Password</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter the new password" />
+
+          <p class="message" id="password-message" role="status" aria-live="polite"></p>
+
+          <button type="submit" id="update-password-button">Update Password</button>
+        </form>
+
+        <button class="link-button" type="button" id="logout-button">Logout</button>
       </section>
     </main>
 

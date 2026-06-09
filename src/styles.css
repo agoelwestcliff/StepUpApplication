@@ -140,6 +140,42 @@ button:focus {
   color: #176a3a;
 }
 
+.profile-details {
+  margin: 20px 0 8px;
+  padding: 16px;
+  background: #f2fbff;
+  border: 1px solid #cdeeff;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.profile-details dt {
+  margin-top: 8px;
+  color: #3aa9f5;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-details dt:first-child {
+  margin-top: 0;
+}
+
+.profile-details dd {
+  margin: 4px 0 0;
+  color: #333;
+  font-size: 16px;
+  word-break: break-word;
+}
+
+.profile-subtitle {
+  margin: 24px 0 4px;
+  color: #333;
+  font-size: 18px;
+  text-align: left;
+}
+
 @media (max-width: 420px) {
   .page {
     padding: 12px;
