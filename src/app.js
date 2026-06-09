@@ -1,7 +1,49 @@
 (function () {
-  var mode = 'signup';
-  var employees = [];
-  var currentEmployee = null;
+  var EMPLOYEES_KEY = 'stepup.employees';
+  var SESSION_KEY = 'stepup.session';
+
+  function loadEmployees() {
+    try {
+      var raw = window.localStorage.getItem(EMPLOYEES_KEY);
+      var parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveEmployees() {
+    try {
+      window.localStorage.setItem(EMPLOYEES_KEY, JSON.stringify(employees));
+    } catch (error) {
+      // localStorage unavailable (private mode, quota); fall back to in-memory only.
+    }
+  }
+
+  function loadSessionEmail() {
+    try {
+      return window.localStorage.getItem(SESSION_KEY);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function saveSessionEmail(value) {
+    try {
+      if (value) {
+        window.localStorage.setItem(SESSION_KEY, value);
+      } else {
+        window.localStorage.removeItem(SESSION_KEY);
+      }
+    } catch (error) {
+      // ignore
+    }
+  }
+
+  var employees = loadEmployees();
+  var sessionEmail = loadSessionEmail();
+  var currentEmployee = sessionEmail ? findEmployeeByEmail(sessionEmail) : null;
+  var mode = employees.length > 0 ? 'login' : 'signup';
 
   var authPage = document.getElementById('auth-page');
   var dashboard = document.getElementById('dashboard');
@@ -134,6 +176,7 @@
     }
 
     currentEmployee.password = newPassword.value;
+    saveEmployees();
     passwordForm.reset();
     setPasswordMessage('Password updated successfully.', 'success');
   }
@@ -161,7 +204,9 @@
     };
 
     employees.push(employee);
+    saveEmployees();
     currentEmployee = employee;
+    saveSessionEmail(employee.email);
     clearForm();
     setMessage('');
     renderDashboard();
@@ -177,6 +222,7 @@
     }
 
     currentEmployee = employee;
+    saveSessionEmail(employee.email);
     clearForm();
     setMessage('');
     renderDashboard();
@@ -222,6 +268,7 @@
 
   logoutButton.addEventListener('click', function () {
     currentEmployee = null;
+    saveSessionEmail(null);
     mode = 'login';
     clearForm();
     renderDashboard();
