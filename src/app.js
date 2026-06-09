@@ -275,5 +275,23 @@
     setMessage('You have been logged out.', 'success');
   });
 
+  var toggleButtons = document.querySelectorAll('.toggle-password');
+  for (var t = 0; t < toggleButtons.length; t += 1) {
+    toggleButtons[t].addEventListener('click', function (event) {
+      var button = event.currentTarget;
+      var input = document.getElementById(button.getAttribute('data-target'));
+      if (!input) {
+        return;
+      }
+      var isHidden = input.type === 'password';
+      input.type = isHidden ? 'text' : 'password';
+      button.setAttribute('aria-pressed', isHidden ? 'true' : 'false');
+      button.setAttribute(
+        'aria-label',
+        isHidden ? 'Hide password' : 'Show password'
+      );
+    });
+  }
+
   renderDashboard();
 })();
