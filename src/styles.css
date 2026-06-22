@@ -321,6 +321,46 @@ button:focus {
   padding: 8px 18px;
 }
 
+.card h3 {
+  margin: 0 0 12px;
+}
+
+.stats-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stats-list div {
+  flex: 1 1 130px;
+  padding: 12px;
+  background: #f3fff3;
+  border: 1px solid #bde8bd;
+}
+
+.stats-list strong,
+.stats-list span {
+  display: block;
+}
+
+.stats-list strong {
+  color: #176a3a;
+}
+
+.activities-list,
+.badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.activities-list span,
+.badge {
+  padding: 8px;
+  background: #f7f7f7;
+  border: 1px solid #ccc;
+}
+
 .back-link {
   display: inline-block;
   width: auto;
@@ -353,6 +393,10 @@ button:focus {
   .profile-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .stats-list {
+    flex-direction: column;
   }
 }
 
