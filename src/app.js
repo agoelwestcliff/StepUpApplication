@@ -40,7 +40,15 @@
     }
   }
 
+  var DEMO_EMPLOYEE = {
+    firstName: 'Demo',
+    lastName: 'User',
+    email: 'demo@stepup.com',
+    password: 'demo123',
+  };
+
   var employees = loadEmployees();
+  ensureDemoEmployee();
   var sessionEmail = loadSessionEmail();
   var currentEmployee = sessionEmail ? findEmployeeByEmail(sessionEmail) : null;
   var mode = employees.length > 0 ? 'login' : 'signup';
@@ -61,6 +69,8 @@
   var message = document.getElementById('message');
   var submitButton = document.getElementById('submit-button');
   var switchModeButton = document.getElementById('switch-mode');
+  var demoHint = document.getElementById('demo-hint');
+  var demoHintCreds = document.getElementById('demo-hint-creds');
   var logoutButton = document.getElementById('logout-button');
   var profileName = document.getElementById('profile-name');
   var profileEmail = document.getElementById('profile-email');
@@ -79,6 +89,18 @@
     }
 
     return null;
+  }
+
+  function ensureDemoEmployee() {
+    if (!findEmployeeByEmail(DEMO_EMPLOYEE.email)) {
+      employees.push({
+        firstName: DEMO_EMPLOYEE.firstName,
+        lastName: DEMO_EMPLOYEE.lastName,
+        email: DEMO_EMPLOYEE.email,
+        password: DEMO_EMPLOYEE.password,
+      });
+      saveEmployees();
+    }
   }
 
   function setMessage(text, type) {
@@ -102,10 +124,12 @@
       ? 'Create an employee account with your email.'
       : 'Login with your account.';
 
+    demoHintCreds.textContent =
+      DEMO_EMPLOYEE.email + '  ·  ' + DEMO_EMPLOYEE.password;
+    demoHint.className = isSignup ? 'demo-hint hidden' : 'demo-hint';
+
     submitButton.textContent = isSignup ? 'Sign Up' : 'Login';
-    switchModeButton.textContent = isSignup
-      ? 'Already have an account? Login'
-      : 'Need an account? Sign up';
+    switchModeButton.textContent = isSignup ? 'Log in instead' : 'Create an account';
     password.placeholder = isSignup ? 'Create a password' : 'Enter your password';
 
     for (var index = 0; index < signupFields.length; index += 1) {
@@ -240,6 +264,13 @@
 
   form.addEventListener('input', function () {
     setMessage('');
+  });
+
+  demoHint.addEventListener('click', function () {
+    email.value = DEMO_EMPLOYEE.email;
+    password.value = DEMO_EMPLOYEE.password;
+    setMessage('');
+    submitButton.focus();
   });
 
   switchModeButton.addEventListener('click', function () {
